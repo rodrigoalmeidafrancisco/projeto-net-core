@@ -58,4 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Data" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlSchemaCompare.scmp" />
+  </ItemGroup>
 </Project>
