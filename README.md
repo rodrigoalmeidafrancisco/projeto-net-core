@@ -1,4 +1,4 @@
-# Projeto .Net Blazor
+# Projeto .Net Core
 
-Projeto criado em .Net (Blazor) para estudo e exemplos de utilização
+Projeto completo usando Front-End, Back-End e Database em projetos separados.
 
