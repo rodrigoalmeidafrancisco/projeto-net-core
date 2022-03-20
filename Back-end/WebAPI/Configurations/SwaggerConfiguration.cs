@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using Shared.Settings;
 using System.Reflection;
 
 namespace WebAPI.Configurations
@@ -9,7 +10,7 @@ namespace WebAPI.Configurations
         {
             services.AddSwaggerGen(x =>
             {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "NetCore 6 API", Version = "v1" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = SettingsWebAPI.BaseWebAPI.SystemName, Version = "v1" });
 
                 //Configura o Swagger para que possa fazer requisição com a API, incluíndo um Bearer Token para as chamadas direto na tela.
                 x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -49,8 +50,8 @@ namespace WebAPI.Configurations
             app.UseSwaggerUI(x =>
             {
                 x.DefaultModelsExpandDepth(-1);
-                x.SwaggerEndpoint("v1/swagger.json", "NetCore 6 API");
-                x.DocumentTitle = "NetCore 6 API";
+                x.SwaggerEndpoint("v1/swagger.json", SettingsWebAPI.BaseWebAPI.SystemName);
+                x.DocumentTitle = SettingsWebAPI.BaseWebAPI.SystemName;
             });
         }
     }

@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         {
             ResultCommand<TokenViewModel> resultCommand = new();
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
                 resultCommand.Message = ResourceResultAPI.InvalidParameters.Replace("{phrase}", "Não foi possível realizar o login")
                     .FormatHtmlMessage(GetModelStateErrors(ModelState));
