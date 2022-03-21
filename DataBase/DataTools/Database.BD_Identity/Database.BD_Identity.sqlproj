@@ -3,17 +3,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Database.ProjetoNetCore</Name>
+    <Name>Database.BD_Identity</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{9d7f9de4-bacf-4f22-8202-46bdafda5c4e}</ProjectGuid>
+    <ProjectGuid>{3ea35ed6-167a-4771-b1c8-e3a55afeedc2}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Database.ProjetoNetCore</RootNamespace>
-    <AssemblyName>Database.ProjetoNetCore</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <RootNamespace>Database.BD_Identity</RootNamespace>
+    <AssemblyName>Database.BD_Identity</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,30 +58,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Data" />
-    <Folder Include="Scripts" />
-    <Folder Include="Security" />
-    <Folder Include="Scripts\PosDeploy" />
-    <Folder Include="Scripts\PreDeploy" />
-    <Folder Include="Data\Account" />
-    <Folder Include="Data\Account\Tables" />
-    <Folder Include="Data\dbo" />
-    <Folder Include="Data\dbo\Tables" />
-    <Folder Include="Scripts\PosDeploy\Account" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SqlSchemaCompare.scmp" />
-    <None Include="Scripts\PosDeploy\Account\Include_User_Admin.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="Security\Account.sql" />
-    <Build Include="Data\Account\Tables\AccountUser.sql" />
-    <Build Include="Data\dbo\Tables\ELMAH_Error.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <PreDeploy Include="Scripts\PreDeploy\Script.PreDeployment.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Scripts\PosDeploy\Script.PostDeployment.sql" />
+    <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserTokens.sql" />
   </ItemGroup>
 </Project>
