@@ -17,15 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - UnitTest", "4 - UnitTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{8E20A948-2ECF-421D-8578-3DFB3D29E8AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A7582E04-7325-45C4-8DE8-7624B18F3F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A7582E04-7325-45C4-8DE8-7624B18F3F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{4C2E02DE-121E-4561-AFC5-934474A7F364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{4C2E02DE-121E-4561-AFC5-934474A7F364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Local", "Data.Local\Data.Local.csproj", "{804C7A3B-B17B-4550-B9A6-C58B30E59B70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Local", "Data.Local\Data.Local.csproj", "{804C7A3B-B17B-4550-B9A6-C58B30E59B70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.External", "Data.External\Data.External.csproj", "{4C5B281E-FD12-4EA5-9B67-7DAB7036BDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.External", "Data.External\Data.External.csproj", "{4C5B281E-FD12-4EA5-9B67-7DAB7036BDFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Project", "UnitTest.Project\UnitTest.Project.csproj", "{ED640860-0C48-4769-B767-98619F56C71C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Project", "UnitTest.Project\UnitTest.Project.csproj", "{ED640860-0C48-4769-B767-98619F56C71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
