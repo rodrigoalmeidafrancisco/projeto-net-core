@@ -10,14 +10,26 @@
 <MyFirstComponent @ref="_myFirstComponent" Title="Exibindo uma imagem"></MyFirstComponent>
 <img src="/images/Developer.png" class="custom-logo" />
 <br />
-
 <p>Valor passado como parâmetro: <b>@Value</b></p>
-<br />
-    
 <button onclick="@ChangeCustomMessage">Insira uma mensagem</button>
+<br />
+<br />
+
+<h1>One-Way e Two-Way data binding</h1>
+<h3><b>Valor:</b> @person.Name</h3>
+<b>On Change: </b>
+<input type="text" @bind="person.Name" />
+<br />
+<b>On Input: </b>
+<input type="text" @bind-value="@person.Name" @bind-value:event="oninput" />
+<br />
+<br />
+
+
 
 @code {
     private MyFirstComponent? _myFirstComponent;
+    private Person person = new(1, "Valor Teste", "teste@teste.com.br");
 
     [Parameter]
     public string? Value { get; set; }
@@ -26,5 +38,4 @@
     {
         _myFirstComponent?.ShowMessage("Mensagem customizada");
     }
-
 }
