@@ -72,3 +72,7 @@ a, .btn-link {
     background-color: lightblue;
     height: 50px;
 }
+
+.blazor-input{
+    width: 100%;
+}

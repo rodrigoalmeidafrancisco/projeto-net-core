@@ -11,7 +11,7 @@
 <img src="/images/Developer.png" class="custom-logo" />
 <br />
 <p>Valor passado como parâmetro: <b>@Value</b></p>
-<button onclick="@ChangeCustomMessage">Insira uma mensagem</button>
+<button @onclick="ChangeCustomMessage">Insira uma mensagem</button>
 <br />
 <br />
 
@@ -25,11 +25,45 @@
 <br />
 <br />
 
+<h1>Eventos em componentes</h1>
+<div class="row">
+    <div class="col-12 text-right">
+        <b>Mensagem: @MessageEvents</b>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+        <input type="text" placeholder="On Focus" class="blazor-input" @onfocus="OnFocusCustomEvent" />
+    </div>
+    <div class="col-3">
+        <input type="text" placeholder="On Paste" class="blazor-input" @onpaste="OnPasteCustomEvent" />
+    </div>
+    <div class="col-1">
+        <button @onclick="OnMouseClick" @ondblclick="OnMouseDoubleClick" @onmousedown="OnMouseDown"
+                @onmouseup="OnMouseUp" @onmouseover="OnMouseOver" @onmousemove="OnMouseMove" @onmouseout="OnMouseOutEvent">
+            Button 1
+        </button>
+    </div>
+    <div class="col-1">
+        <button @onclick="OnMouseEvent" @ondblclick="OnMouseEvent" @onmousedown="OnMouseEvent"
+                @onmouseup="OnMouseEvent" @onmouseover="OnMouseEvent" @onmousemove="OnMouseEvent" @onmouseout="OnMouseEvent">
+            Button 2
+        </button>
+    </div>
+    <div class="col-4">
+        <button @onclick="@(x => ChangeMessageControl(x, 100))">
+            Lambda Expression
+        </button>
+    </div>
+</div>
 
 
 @code {
+
+    #region Teste 1
+
     private MyFirstComponent? _myFirstComponent;
-    private Person person = new(1, "Valor Teste", "teste@teste.com.br");
 
     [Parameter]
     public string? Value { get; set; }
@@ -38,4 +72,85 @@
     {
         _myFirstComponent?.ShowMessage("Mensagem customizada");
     }
+
+    #endregion Teste 1
+
+    #region One-Way e Two-Way data binding
+
+    private Person person = new(1, "Valor Teste", "teste@teste.com.br");
+
+    #endregion One-Way e Two-Way data binding
+
+    #region Eventos em componentes
+
+    public string? MessageEvents { get; set; }
+
+    protected void OnFocusCustomEvent()
+    {
+        this.MessageEvents = "Focus no campo de texto";
+    }
+
+    protected void OnPasteCustomEvent()
+    {
+        this.MessageEvents = "Colou algo no campo de texto";
+    }
+
+    protected void OnMouseClick()
+    {
+        this.MessageEvents = "Clicou 1 vez";
+    }
+
+    protected void OnMouseDoubleClick()
+    {
+        this.MessageEvents = "Clicou 2 vezes";
+    }
+
+    protected void OnMouseDown()
+    {
+        this.MessageEvents = "On Mouse Down";
+    }
+
+    protected void OnMouseUp()
+    {
+        this.MessageEvents = "On Mouse UP";
+    }
+
+    protected void OnMouseOver()
+    {
+        this.MessageEvents = "On Mouse OVER";
+    }
+
+    protected void OnMouseMove()
+    {
+        this.MessageEvents = "On Mouse MOVE";
+    }
+
+    protected void OnMouseOutEvent()
+    {
+        this.MessageEvents = "On Mouse OUT";
+    }
+
+    protected void OnMouseEvent(MouseEventArgs e)
+    {
+        switch (e.Type)
+        {
+            case "click":
+                this.MessageEvents = "Evento do OnMouseEvent - Clicou!";
+                break;
+
+            case "mouseout":
+                this.MessageEvents = "Evento do OnMouseEvent - OUT!";
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    protected void ChangeMessageControl(MouseEventArgs e, int elementId)
+    {
+        this.MessageEvents = $"Element number: {elementId}";
+    }
+
+    #endregion Eventos em componentes
 }
