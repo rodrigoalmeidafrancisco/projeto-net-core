@@ -1,25 +1,15 @@
+using WebAPI.Configurations;
+using WebAPI.Configurations.Base;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.InitializerConfigurationService(); //Faz as configurações do WebApplicationBuilder da API
+builder.Services.AddTelemetryDependency(); //Configura a Dependência do Telemetry ApplicationInsights
+builder.Services.AddAuthenticationService(); //Configura a autenticação da API
+builder.Services.AddFactoryService(); //Cria as Factory para as chamadas HTTP
+builder.Services.AddSwaggerService(); //Configura o Swagger
 
 var app = builder.Build();
+app.InitializerConfigurationAPP(); //Faz as configurações do WebApplication da API
+app.AddTelemetryStart(); //Inicia os logs do Telemetry ApplicationInsights
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+await app.RunAsync();

@@ -3,7 +3,7 @@ using WebAPI.Controllers.Base;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AccountController : BaseController
     {

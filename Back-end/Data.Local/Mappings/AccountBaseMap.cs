@@ -11,7 +11,6 @@ namespace Data.Local.Mappings
             builder.ToTable("Base", "Account");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.UserName).HasColumnType("NVARCHAR").HasMaxLength(15).IsRequired(true);
             builder.Property(x => x.Email).HasColumnType("NVARCHAR").HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.EmailConfirmed).HasColumnType("BIT").IsRequired(true);
             builder.Property(x => x.Password).HasColumnType("NVARCHAR(MAX)").IsRequired(true);
