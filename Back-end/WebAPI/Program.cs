@@ -7,6 +7,7 @@ builder.Services.AddTelemetryDependency(); //Configura a Dependência do Telemetr
 builder.Services.AddAuthenticationService(); //Configura a autenticação da API
 builder.Services.AddFactoryService(); //Cria as Factory para as chamadas HTTP
 builder.Services.AddSwaggerService(); //Configura o Swagger
+builder.Services.AddElmah(); //Configrua o Elmah
 
 var app = builder.Build();
 app.InitializerConfigurationAPP(); //Faz as configurações do WebApplication da API
