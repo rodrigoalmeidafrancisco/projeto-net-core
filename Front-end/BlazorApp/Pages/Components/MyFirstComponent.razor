@@ -1,0 +1,21 @@
+﻿<h3>@Title</h3>
+
+@if (Message != null)
+{
+    <b>Minha mensagem customizada: @Message</b>
+    <br />
+}
+
+@code {
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    private string? Message { get; set; }
+
+    public void ShowMessage(string customMessage)
+    {
+        this.Message = customMessage;
+        StateHasChanged();
+    }
+}

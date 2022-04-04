@@ -1,6 +1,30 @@
 ﻿@page "/"
+@page "/Index"
+@page "/Index/{value}"
 
 <PageTitle>Index</PageTitle>
 
 <h1>ProjetoNetCore - WebAPP</h1>
 
+<br />
+<MyFirstComponent @ref="_myFirstComponent" Title="Exibindo uma imagem"></MyFirstComponent>
+<img src="/images/Developer.png" class="custom-logo" />
+<br />
+
+<p>Valor passado como parâmetro: <b>@Value</b></p>
+<br />
+    
+<button onclick="@ChangeCustomMessage">Insira uma mensagem</button>
+
+@code {
+    private MyFirstComponent? _myFirstComponent;
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    private void ChangeCustomMessage()
+    {
+        _myFirstComponent?.ShowMessage("Mensagem customizada");
+    }
+
+}

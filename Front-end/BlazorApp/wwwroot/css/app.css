@@ -62,3 +62,13 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.custom-logo {
+    max-width: 60px;
+    height: auto;
+}
+
+.custom-input {
+    background-color: lightblue;
+    height: 50px;
+}

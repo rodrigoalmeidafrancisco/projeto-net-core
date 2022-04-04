@@ -1,0 +1,32 @@
+﻿@page "/Attributes"
+
+<h3>Componentes de Atributos</h3>
+<br />
+
+<b>Preenchimento dos atributos de forma manual</b>
+<input type="text" maxlength="10" placeholder="Digite um valor..." required="required" size="10" class="custom-input" />
+<br /><br />
+
+<b>Preenchimento dos atributos pelas variáveis</b>
+<input type="text" maxlength="@Maxlength" placeholder="@Placeholder" required="@Required" size="@Size" class="@Class" />
+<br /><br />
+
+<b>Preenchimento dos atributos pelo Dictionary</b>
+<input type="text" @attributes="DefaultAtributes" />
+
+
+@code {
+    public int Maxlength { get; set; } = 10;
+    public string? Placeholder { get; set; } = "Digite um valor...";
+    public string? Required { get; set; } = "required";
+    public int Size { get; set; } = 10;
+    public string? Class { get; set; } = "custom-input";
+    Dictionary<string, object> DefaultAtributes { get; set; } = new Dictionary<string, object>()
+    {
+        { "maxlength", 10 },
+        { "placeholder", "Digite um valor..." },
+        { "required", "required" },
+        { "size", 10 },
+        { "class", "custom-input" }
+    };
+}
