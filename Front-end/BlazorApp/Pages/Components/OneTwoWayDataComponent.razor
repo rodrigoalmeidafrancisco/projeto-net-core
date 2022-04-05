@@ -1,0 +1,14 @@
+﻿<h1>One-Way e Two-Way data binding</h1>
+<h3><b>Valor:</b> @person.Name</h3>
+<b>On Change: </b>
+<input type="text" @bind="person.Name" />
+<br />
+<b>On Input: </b>
+<input type="text" @bind-value="@person.Name" @bind-value:event="oninput" />
+<br />
+<br />
+
+
+@code {
+    private Person person = new(1, "Valor Teste", "teste@teste.com.br");
+}

@@ -1,0 +1,52 @@
+﻿<h1>File Upload</h1>
+
+<div class="drag-drop-zone">
+    <InputFile OnChange="@LoadFiles" multiple />
+    Arraste arquivos aqui para realizar o upload.
+    <br />
+</div>
+
+@statusUpload
+
+<ul>
+    @foreach (var file in loadedFiles)
+    {
+        <li>
+            <ul>
+                <li>Name: @file.Name</li>
+                <li>Last modified: @file.LastModified.ToString()</li>
+                <li>Size (bytes): @file.Size</li>
+                <li>Content type: @file.ContentType</li>
+            </ul>
+        </li>
+    }
+</ul>
+
+<br />
+<br />
+
+@code {
+
+    //Documentação Oficial: https://docs.microsoft.com/en-us/aspnet/core/blazor/file-uploads?view=aspnetcore-6.0&pivots=webassembly
+    //Outras formas: https://curatedcsharp.com/p/blazorfileupload-datajuggler-blazorfileupload/index.html
+
+    private List<IBrowserFile> loadedFiles = new();
+    private string statusUpload = string.Empty;
+
+    private void LoadFiles(InputFileChangeEventArgs e)
+    {
+        statusUpload = string.Empty;
+
+        if (e.FileCount > 0)
+        {
+            foreach (var file in e.GetMultipleFiles())
+            {
+                loadedFiles.Add(file);
+            }
+
+            statusUpload = "Arquivos carregados com sucesso!";
+        }
+
+        StateHasChanged();
+    }
+}
