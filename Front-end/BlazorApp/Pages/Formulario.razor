@@ -1,0 +1,52 @@
+﻿@page "/Formulario"
+
+<h3>Formulario</h3>
+
+<EditForm Model="_person" OnValidSubmit="FormSubmit">
+    <p>
+        <label>Nome</label>
+        <InputText @bind-Value="_person.Name"></InputText>
+    </p>
+    <p>
+        <label>Email</label>
+        <InputText @bind-Value="_person.Email"></InputText>
+
+    </p>
+    <p>
+        <label>Document</label>
+        <InputText @bind-Value="_person.Document"></InputText>
+
+    </p>
+    <p>
+        <label>BirthDay</label>
+        <InputDate @bind-Value="_person.BirthDay"></InputDate>
+    </p>
+    <p>
+        <label>YearsCompany</label>
+        <InputNumber @bind-Value="_person.YearsCompany"></InputNumber>
+    </p>
+
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <button type="submit">Submit</button>
+
+</EditForm>
+
+@if (_success)
+{
+    <div class="text-success">
+        Pessoa inserida com sucesso.
+    </div>
+}
+
+@code {
+    private PersonModel _person = new();
+    private bool _success = false;
+
+    private async Task FormSubmit()
+    {
+        //Método para inserir uma pessoa no banco de dados
+        _success = true;
+    }
+}
